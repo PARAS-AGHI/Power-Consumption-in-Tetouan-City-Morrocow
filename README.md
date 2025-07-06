@@ -86,6 +86,92 @@ In this project, our goal is to predict the consumption of electricity usage in 
 
 *Evaluation-metrics: We will be using variety of metrics like R-square score, Mean Absolute error, Root mean squared error.
 
+## Model Implementation & Evaluation
+
+In this chapter, we are going to look into the practical aspect of the of machine learning. Basically, we are going to implement our models and we will be evaluating them based upon their performances. In order to predict electricity consumption in Zone 1, we worked with two regression models: Linear Regression & Random Forest Regression.
+These were the libraries used:
+
+![image](https://github.com/user-attachments/assets/044d4ffb-8dc4-4d59-b453-83b2f58d3a02)
+
+
+### 1.	Linear Regression:
+The independent variables in the analysis are temperature, humidity, wind-speed, general diffuse flows, diffuse flows, zone 2 power consumption, zone 3 power consumption. We have other time-based features as well which are day, month, hour, minute, day of the week, quarter of the year, day of the year. The dependent/target variable here is Zone 1 consumption. From scikit-learn library, we have had access to the Linear-Regression model or object of LinearRegression. The dataset was first standardized or was bought to common grounds during data scaling using StandardScaler. After that we did train_test_split from in the ratio of 80:20. After training the data using LinearRegression(), we made our prediction in with the testing data.
+
+
+![image](https://github.com/user-attachments/assets/e6e65fa8-c141-42e6-bd1d-c51884b5873c)
+
+This shows the performance of the Linear Regression model by using all the features. A scatter plot of Actual vs Predicted values have been shown in the above figure to get a better understanding of the model and better visualization. The red line above is known as the best-fit line and it is at a 45 degree angle as we can see the figure. The points which are closer to the line shows that the predicted values are close to the actual values and vice-versa.
+
+### 2.	Random-Forest Regressor(RFE):
+In RFE, for example we have 5000 datapoints and 8 features, it will split into nodes. Each node will perform on a sample of 5000 datapoints but it won’t select all the features it will select few of them randomly and on further extension of the same nodes again it selects the features randomly in the extended node. Here, I have taken n_estimators = 100 in my RFE model, so it will make 100 decision trees which will work with different permutation and combination of the output and in the end once every decision tree gives the output. It will give me average of those outputs in my prediction.
+
+
+![image](https://github.com/user-attachments/assets/b4b75693-7372-4467-83ef-ae45e1b3b04c)
+
+Here we can see the datapoints are more close to the best-fit line compared to the Linear Regression model. It is a good sign for the model and predictability of our output.
+
+## Evaluating my models using Regression metrices:
+For evaluating the performance of our models we are using three main regression metices : R-square score, MAE, MSE. These indicate how well my model is giving predicted output when compared with the actual output. In this case our output is Zone 1 electricity consumption.
+ 
+
+![image](https://github.com/user-attachments/assets/d76a9240-7286-427f-9ccb-16c1025badfd)
+
+
+![image](https://github.com/user-attachments/assets/76509d23-e338-4769-8b31-02a2c8782ebd)
+
+
+As we can see the performance of both of our models. Evidently, RFE is outperforming our Linear Regression model by a significant margin. RFE is able to analyse non-linear relationships as well and also taking care of overfitting due to ensemble learning. Comparing and evaluating both my models for forecasting electricity consumption in Zone 1, RFE is quite preferrable.
+
+
+## Conclusion:
+
+•	Looking at the seasonal/monthly trends, the demand for electricity in zone 1 is highest from the month of April to the month of October.
+
+•	The features that mostly affected the power consumption in Zone 1 are Temperature, Zone 2 & Zone 3.
+
+•	With the KDE-plot, all the zones almost represent normal distribution of datapoints. Zone 1 and Zone 2 has more sharp edges while Zone 3 is comparatively flatter.
+
+•	The RFE reflected more accuracy than the Linear regression model when compared with evaluation metrices i.e. R-score, MAE,MSE.
+
+## Recommendation
+
+•	Government or policy makers can ask households in the Zone 1 to reduce the power consumption during peak hours or during peak seasonality.
+
+•	Our models can be used to predict seasonal demands which allows the electricity suppliers to manage the supply. For example, during less peak hours when people are hardly using electricity they can cut the power supply for energy saving and less wastage.
+
+•	Also, we can do Zone wise consumption optimization. As, electricity consumption in zone 1 is highly correlated with zone 2, zone 3. For better utilization of energy, we can cut the energy in other zones during the peak in zone 1.
+
+•	The electricity which is to be overproduced can be prevented using this forecasting.
+
+•	We can set threshold for energy usage as well. For example, fixed number units used during this duration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
